@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>CRM</title>
+         <!--Bootstrap 5 CSS--->
+    <link rel="stylesheet" type="text/css" href="../../assets/Bootstrap5/css/bootstrap.css" />
+
+    <!--Bootstrap 5 JS--->
+    <script type="text/javascript" src="../../assets/Bootstrap5/js/bootstrap.bundle.min.js"></script>
+
+    <!--Bootstrap Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/de952d599f.js" crossorigin="anonymous"></script>
+
+    <!--datatables CSS--->
+    <link rel="stylesheet" type="text/css" href="../../assets/datatables/css/datatables.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/datatables/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/datatables/css/buttons.dataTables.min.css" />
+
+    <!--Datatables js-->
+    <script type="text/javascript" src="../../assets/js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="../../assets/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="./datatable/datatable.js"></script>
+    <script type="text/javascript" src="../../assets/js/dataTables.responsive.min.js"></script>
+
+    <!--Datatable dropdown----->
+    <script type="text/javascript" src="../../assets/js/datatables.pdfmake.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/datatables.vfs_fonts.js"></script>
+    <script type="text/javascript" src="../../assets/js/datatables.jszip.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/buttons.print.min.js"></script>
+
+    <!--Dropdown select-->
+    <link rel="stylesheet" href="../../assets/Bootstrap5/css/bootstrap-select.min.css" />
+    <script src="../../assets/Bootstrap5/js/bootstrap-select.min.js"></script>
+
+    <!--summernote_textarea-->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+    <!-- CSS -->
+    <!-- validation -->
+    <script src="https://Login.loyalwings.com/assets/js/formValidation.min.js"></script>
+    <script src="https://Login.loyalwings.com/assets/js/bootstrap_validation.min.js"></script>
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+    </head>
+
+    <style>
+        .h4-text{
+        font-size: 18px;
+        font-weight: 400;
+        }
+        .general-info-color{
+        color: #d81b60;
+    }
+    .row-mtop10{
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+    .general-info{
+        font-size: 18px;
+        font-weight: 500;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .col-padding{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+.tumbnail-padding{
+margin-left: -10px;
+margin-right: -10px;
+}
+.thumbnail1 {
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+transition: 0.3s;
+min-width: 40%;
+border-radius: 5px;
+display: block;
+padding: 4px;
+margin-bottom: 20px;
+line-height: 1.42857143;
+background-color: #fff;
+-webkit-transition: border .2s ease-in-out;
+-o-transition: border .2s ease-in-out;
+transition: border .2s ease-in-out;
+}
+.thumbnail1 .caption1 {
+padding: 9px;
+color: #333;
+}
+.thumbnail-description {
+min-height: 40px;
+}
+.ctrfilter .contractfilter {
+border: 1px;
+padding: 7px 15px 5px;
+border-radius: 4px;
+margin-right: 0px;
+margin-top: 15px;
+}
+.contractfilter {
+border: none;
+border-radius: 4px;
+margin: 10px 4px 0px 0px;
+padding: 4px 10px 4px;
+font-size: 14px;
+font-family: var(--primary-font);
+}
+.hr-color{
+    margin-top: 10px;
+    border-bottom: 0.5px solid;
+    color: #d8341b;
+}
+.colorview{
+    color: lightskyblue;
+}
+.rowtop1{
+    margin-top: 7px;
+}
+.show-tick{
+   background-color:  black;
+}
+
+</style>
+<body id="wrapper" style="text-transform: none!important;">
+<div>
+<div class="row m-1">
+<div class="content2 productcontainer" id="first_col" >
+    <div class="container-fluid  tblcontainer" style="padding-left: 2%; padding-right: 2%;">
+    <div class=" rowtop1">
+        <div class="col-md-12">
+            <h4 class="h4-text" style="color:#d8341b;"><i class="fa fa-clone menu-icon menu-icon" aria-hidden="true"></i>  Product variant management</h4>
+            <hr class="hr-color">
+        </div>
+    </div>
+    
+    <form  class="col-md-12 expbdymt">
+        <div class="row">
+            <div class="purchasegrp">
+            <div class="text-start">
+                <div class="row align-items-start">
+                    <div class="col-md-4">
+                        <div class="purchasegrp">
+                            <div class="dropdown bootstrap-select show-tick bs3" style="width: 100%; border: 1px;">
+                                <select name="item_filter[]" id="item_filter" class="selectpicker" multiple="true" data-actions-box="true" data-live-search="true" data-width="100%" data-none-selected-text="Product" tabindex="-98">
+    
+                                    <option value="2855">Valeria Black-Black-Black</option>
+                                    <option value="2858">Dre-123 M-L</option>
+                                    <option value="2860"> red</option>
+                                    <option value="2861"> white</option>        
+                                    <option value="2864"> 20_Posts-</option>
+                                    <option value="2865"> _30_Posts-</option>
+                                    <option value="2866"> _40_Posts-</option>
+                                    <option value="2877">iphone 15 black-</option>
+                                    <option value="2878">iphone 15 blue-</option>
+                                
+                                </select>
+                            <div class="dropdown-menu open">
+                                <div class="bs-searchbox">
+                                    <input type="search" class="form-control" autocomplete="off" role="combobox" aria-label="Search" aria-controls="bs-select-1" aria-autocomplete="list">
+                                </div>
+                                <div class="bs-actionsbox">
+                                    <div class="btn-group btn-group-sm btn-block">
+                                        <button type="button" class="actions-btn bs-select-all btn btn-default">Select All</button>
+                                        <button type="button" class="actions-btn bs-deselect-all btn btn-default">Deselect All</button>
+                                    </div>
+                                </div>
+                                    <div class="inner open" role="listbox" id="bs-select-1" tabindex="-1" aria-multiselectable="true">
+                                        <ul class="dropdown-menu inner " role="presentation"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="purchasegrp">
+                            <div class="dropdown bootstrap-select show-tick bs3" style="width: 100%; border: 1px;">
+                                <select name="item_filter[]" id="item_filter" class="selectpicker" multiple="true" data-actions-box="true" data-live-search="true" data-width="100%" data-none-selected-text="Product type" tabindex="-98">
+    
+                                    <option value="2855">Consumable</option>
+                                    <option value="2858">Service</option>
+                                    <option value="2860">Storable product</option>
+                                
+                                </select>
+                            <div class="dropdown-menu open">
+                                <div class="bs-searchbox">
+                                    <input type="search" class="form-control" autocomplete="off" role="combobox" aria-label="Search" aria-controls="bs-select-1" aria-autocomplete="list">
+                                </div>
+                                <div class="bs-actionsbox">
+                                    <div class="btn-group btn-group-sm btn-block">
+                                        <button type="button" class="actions-btn bs-select-all btn btn-default">Select All</button>
+                                        <button type="button" class="actions-btn bs-deselect-all btn btn-default">Deselect All</button>
+                                    </div>
+                                </div>
+                                    <div class="inner open" role="listbox" id="bs-select-1" tabindex="-1" aria-multiselectable="true">
+                                        <ul class="dropdown-menu inner " role="presentation"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="purchasegrp">
+                            <div class="dropdown bootstrap-select show-tick bs3" style="width: 100%; border: 1px;">
+                                <select name="item_filter[]" id="item_filter" class="selectpicker" multiple="true" data-actions-box="true" data-live-search="true" data-width="100%" data-none-selected-text="Product category" tabindex="-98">
+    
+                                    <option value="2855">Subscription</option>
+                                    <option value="2858">Servicioss</option>                                     
+                                
+                                </select>
+                            <div class="dropdown-menu open">
+                                <div class="bs-searchbox">
+                                    <input type="search" class="form-control" autocomplete="off" role="combobox" aria-label="Search" aria-controls="bs-select-1" aria-autocomplete="list">
+                                </div>
+                                <div class="bs-actionsbox">
+                                    <div class="btn-group btn-group-sm btn-block">
+                                        <button type="button" class="actions-btn bs-select-all btn btn-default">Select All</button>
+                                        <button type="button" class="actions-btn bs-deselect-all btn btn-default">Deselect All</button>
+                                    </div>
+                                </div>
+                                    <div class="inner open" role="listbox" id="bs-select-1" tabindex="-1" aria-multiselectable="true">
+                                        <ul class="dropdown-menu inner " role="presentation"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            </div>
+        </div>
+    </form>
+    
+    
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="demo-html mt-0">
+                <table id="example" class=" display dataTable display responsive nowrap tblborder"
+                    style="width: 100%;" aria-describedby="example_info">
+                    <thead class="theadrow">
+                        <tr class="odd">
+                            <th class="sorting_disabled not-export">
+                                <div class="checkbox mass_select_all_wrap">
+                                    <input type="checkbox" id="mass_select_all" data-to-table="product_variant_table">
+                                </div>
+                            </th>
+                            <th class="select-checkbox sorting_disabled" >
+                               Images
+                            </th>
+                            <th class="sorting sorting_asc" >
+                                Product name
+                            </th>
+                            <th class="sorting" >
+                               Barcode
+                            </th>
+                            <th class="sorting" >
+                               Sale price
+                            </th>
+                            <th class="sorting">
+                               Cost
+                            </th>
+                            <th class="sorting">
+                              Product category
+                            </th>
+                            <th class="sorting">
+                                Product Type
+                              </th>
+                              <th class="sorting">
+                               Quantity on hand
+                              </th>
+                              <th class="sorting">
+                                Name
+                              </th>
+                              <th class="sorting">
+                               HSN code
+                              </th>
+                              
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="odd">
+                            <td>
+                                <div class="checkbox mass_select_all_wrap">
+                                    <input type="checkbox" id="mass_select_all" data-to-table="product_variant_table">
+                                </div> 
+                            </td>
+                            <td class="loyal"> <img src="../img/null_image.jpg" width="100px" height="100px"></td>
+                            <td>
+                                <a class="loyal" href="#" id="v1" >-40-Posts
+                                    <p class="header-effect ">
+                                        <a href="view.html" class="colorview">
+                                            View
+                                        </a>
+                                        <span class="3"> | </span>
+                                        <a href="edit-product.html" class="colorview">
+                                            Edit
+                                        </a>
+                                        <span class="3"> | </span>
+                                        <span class="sp-class3">Delete</span>
+                                    </p>
+                                </a>
+                            </td>
+                            <td>60021082401</td>
+                            <td>150.00</td>
+                            <td>100.00</td>
+                            <td>Servicioss</td>
+                            <td></td>
+                            <td><span class="dept">Manuel Wareh: (48)</span></td>
+                            <td>Meter</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="checkbox mass_select_all_wrap">
+                                    <input type="checkbox" id="mass_select_all" data-to-table="product_variant_table">
+                                </div> 
+                            </td>
+                            <td class="loyal"> <img src="../img/null_image.jpg" width="100px" height="100px"></td>
+                            <td>
+                                <a href="#" id="v1" >-30-Posts
+                                    <p class="header-effect ">
+                                        <a href="view.html" class="colorview">
+                                            View
+                                        </a>
+                                        <span class="3"> | </span>
+                                        <a href="edit-product.html" class="colorview">
+                                            Edit
+                                        </a>
+                                        <span class="3"> | </span>
+                                        <span class="sp-class3">Delete</span>
+                                    </p>
+                                </a>
+                            </td>
+                            <td>90816779276</td>
+                            <td>150.00</td>
+                            <td>100.00</td>
+                            <td>Servicioss</td>
+                            <td></td>
+                            <td class="loyal"><span class="dept">Manuel Wareh: (100)</span></td>
+                            <td>Meter</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="checkbox mass_select_all_wrap">
+                                    <input type="checkbox" id="mass_select_all" data-to-table="product_variant_table">
+                                </div> 
+                            </td>
+                            <td class="loyal"> <img src="../img/null_image.jpg" width="100px" height="100px"></td>
+                            <td>
+                                <a href="#" id="v1" >-20-Posts
+                                    <p class="header-effect ">
+                                        <a href="view.html" class="colorview">
+                                            View
+                                        </a>
+                                        <span class="3"> | </span>
+                                        <a href="edit-product.html" class="colorview">
+                                            Edit
+                                        </a>
+                                        <span class="3"> | </span>
+                                        <span class="sp-class3">Delete</span>
+                                    </p>
+                                </a>
+                            </td>
+                            <td>79442746209	</td>
+                            <td>150.00</td>
+                            <td>100.00</td>
+                            <td>Servicioss</td>
+                            <td></td>
+                            <td class="loyal"><span class="dept">Manuel Wareh: (88)</span></td>
+                            <td>Meter</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="checkbox mass_select_all_wrap">
+                                    <input type="checkbox" id="mass_select_all" data-to-table="product_variant_table">
+                                </div> 
+                            </td>
+                            <td class="loyal"> <img src="../img/null_image.jpg" width="100px" height="100px"></td>
+                            <td>
+                                <a href="#" id="v1" >-20-Posts
+                                    <p class="header-effect ">
+                                        <a href="view.html" class="colorview">
+                                            View
+                                        </a>
+                                        <span class="3"> | </span>
+                                        <a href="edit-product.html" class="colorview">
+                                            Edit
+                                        </a>
+                                        <span class="3"> | </span>
+                                        <span class="sp-class3">Delete</span>
+                                    </p>
+                                </a>
+                            </td>
+                            <td>53875440222</td>
+                            <td>100.00</td>
+                            <td>100.00</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Meter</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="checkbox mass_select_all_wrap">
+                                    <input type="checkbox" id="mass_select_all" data-to-table="product_variant_table">
+                                </div> 
+                            </td>
+                            <td class="loyal"> <img src="../img/null_image.jpg" width="100px" height="100px"></td>
+                            <td>
+                                <a href="#" id="v1" >white
+                                    <p class="header-effect ">
+                                        <a href="view.html" class="colorview">
+                                            View
+                                        </a>
+                                        <span class="3"> | </span>
+                                        <a href="edit-product.html" class="colorview">
+                                            Edit
+                                        </a>
+                                        <span class="3"> | </span>
+                                        <span class="sp-class3">Delete</span>
+                                    </p>
+                                </a>
+                            </td>
+                            <td>24412964523</td>
+                            <td>100.00</td>
+                            <td>100.00</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Meter</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+</body>
+
+<!-- modal  -->
+<div class="modal fade" id="modal_md" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close closebtn" data-bs-dismiss="modal"></button>
+                <h5 class="modal-title"></h5>
+            </div>
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+<!--Modal-->
+<script>
+    function showModal(url, title) {
+        $('#modal_fd').on('shown.bs.modal', function () {
+            $('.selectpicker').selectpicker('refresh');
+        });
+        $('#modal_fd').modal('show', { backdrop: 'true' });
+        $.ajax({
+            url: url,
+            success: function (response) {
+                $('#modal_fd .modal-title').html(title);
+                $('#modal_fd .modal-body').html(response);
+            }
+        });
+    }
+</script>
+
+<script>
+    $(document).ready(function () {
+        var table = $('#example').DataTable({
+            language: { lengthMenu: '_MENU_' },
+            rowReorder: {
+                selector: 'td:nth-child(2)'
+            },
+            responsive: true,
+            dom: 'Blfrtip',
+            buttons: [
+                {
+                    text: 'EXPORT',
+                    extend: 'collection',
+                    buttons: ['excel', 'csv', 'pdf', 'print'],
+                    className: 'px-3'
+                },
+                {
+                    text: '<button type="button" onclick="showModal(manipulation.html,Manipulation)" style="font-size:12px; border:none;padding:0;background-color: inherit;">MANIPULATION</button>',
+                },
+                {
+                    text: '<button type="button" onclick="showModal(Barcodeprint.html,Manipulation)" style="font-size:12px; border:none;padding:0;background-color: inherit;">BARCODE PRINTING</button>',
+                },
+                {
+                    text: '<i class="bi bi-arrow-repeat p-1" style="font-size:12px"></i>'
+                }
+            ]
+        });
+    });
+    </script>
+
+<!--Datatable-->
+<!-- <script>
+    $(document).ready(function () {
+        var table = $("#example").DataTable({
+            language: { lengthMenu: "_MENU_" },
+            rowReorder: {
+                selector: "td:nth-child(2)",
+            },
+            responsive: true,
+            dom: "Blfrtip",
+            buttons: [
+                {
+                    text: "EXPORT",
+                    extend: "collection",
+                    buttons: ["excel", "csv", "pdf", "print"],
+                    className: "px-3",
+                },
+
+                {
+                    text: '<button type="button" onclick="showMdModal2(`manipulation-pop.html`,`Manipulation`)" style="font-size:12px; border:none;padding:0;background-color: inherit;">MANIPULATION</button>',
+
+                },
+
+                {
+                    text: '<button type="button" onclick="showMdModal2(`barcodeprint.html`,`Barcodineprinting`)" style="font-size:12px; border:none;padding:0;background-color: inherit;">BARCODE PRINTING</button>',
+
+                },
+
+                {
+                    text: '<i class="bi bi-arrow-repeat"></i>',
+                },
+            ],
+        });
+    });
+</script> -->
+<script>
+    function showModal(url, title) {
+        $('#modal_md').on('shown.bs.modal', function () {
+            $('.selectpicker').selectpicker('refresh');
+        });
+        $('#modal_md').modal('show', { backdrop: 'true' });
+        $.ajax({
+            url: url,
+            success: function (response) {
+                $('#modal_md .modal-title').html(title);
+                $('#modal_md .modal-body').html(response);
+            }
+        });
+    }
+
+</script>
+
+ 
+<!--Toggle-->
+<script>
+    var _visible_1 = true;
+   var _visible = true;
+               
+   $(document).ready(function() {
+               
+               $("#toggle_btn").click(function () {
+                 var hidden_columns = [3, 4, 5, 7];
+                 
+                 if (_visible) {
+                   $("#first_col").removeClass("col-md-12").addClass("col-md-5");
+                   
+                   _visible = false;
+               //  $("#sec_col").show();
+                   
+                 
+ 
+                   $("#toggle_btn")
+                     .find("i")
+                     .removeClass("fa fa-angle-double-left")
+                     .addClass("fa fa-angle-double-right");
+                 } 
+                 else {
+                   $("#first_col").removeClass("col-md-5").addClass("col-md-12");
+                   _visible = true;
+                   $("#sec_col").hide();
+                   $("#toggle_btn")
+                     .find("i")
+                     .removeClass("fa fa-angle-double-right")
+                     .addClass("fa fa-angle-double-left");
+                 } 
+                 var _table = $("#example").DataTable();
+ //     Show hide hidden columns
+      _table.columns(hidden_columns).visible(_visible, true);
+     _table.columns.adjust();
+               });
+               $("#v1").click(function () {
+                 
+                 var hidden_columns = [3, 4, 5, 7];
+                 
+                 if (_visible) {
+                   $("#first_col").removeClass("col-md-12").addClass("col-md-5");
+                   _visible = false;
+                   $("#sec_col").show();
+                   
+                 
+ 
+                   $("#toggle_btn")
+                     .find("i")
+                     .removeClass("fa fa-angle-double-left")
+                     .addClass("fa fa-angle-double-right");
+                 } else {
+                   $("#first_col").removeClass("col-md-5").addClass("col-md-12");
+                   _visible = true;
+                   $("#sec_col").hide();
+                   $("#toggle_btn")
+                     .find("i")
+                     .removeClass("fa fa-angle-double-right")
+                     .addClass("fa fa-angle-double-left");
+                 }
+                 var _table = $("#example").DataTable();             
+     
+ //     Show hide hidden columns
+      _table.columns(hidden_columns).visible(_visible, true);
+     _table.columns.adjust();
+               });
+             });
+             $("#v2").click(function () {
+                 
+                 var hidden_columns = [3, 4, 5, 7];
+                 
+                 if (_visible) {
+                   $("#first_col").removeClass("col-md-12").addClass("col-md-5");
+                   _visible = false;
+                   $("#sec_col").show();
+                   $("t")
+ 
+                   $("#toggle_btn")
+                     .find("i")
+                     .removeClass("fa fa-angle-double-left")
+                     .addClass("fa fa-angle-double-right");
+                 } else {
+                   $("#first_col").removeClass("col-md-5").addClass("col-md-12");
+                   _visible = true;
+                   $("#sec_col").hide();
+                   $("#toggle_btn")
+                     .find("i")
+                     .removeClass("fa fa-angle-double-right")
+                     .addClass("fa fa-angle-double-left");
+                 }
+                 var _table = $("#example").DataTable();
+  //     Show hide hidden columns
+  _table.columns(hidden_columns).visible(_visible, true);
+     _table.columns.adjust();
+               });
+               $("#v3").click(function () {
+                 
+                 var hidden_columns = [3, 4, 5, 7];
+                 
+                 if (_visible) {
+                   $("#first_col").removeClass("col-md-12").addClass("col-md-5");
+                   _visible = false;
+                   $("#third_col").show();
+                   
+                 
+ 
+                   $("#toggle_btn")
+                     .find("i")
+                     .removeClass("fa fa-angle-double-left")
+                     .addClass("fa fa-angle-double-right");
+                 } else {
+                   $("#first_col").removeClass("col-md-5").addClass("col-md-12");
+                   _visible = true;
+                   $("#third_col").hide();
+                   $("#toggle_btn")
+                     .find("i")
+                     .removeClass("fa fa-angle-double-right")
+                     .addClass("fa fa-angle-double-left");
+                 }
+                 var _table = $("#example").DataTable();               
+ //     Show hide hidden columns
+      _table.columns(hidden_columns).visible(_visible, true);
+     _table.columns.adjust();
+               });
+            
+    // script for expand button
+    $("#expandbtn").click(function () {
+      
+      if (_visible_1) {
+        $("#sec_col").removeClass("col-md-7").addClass("col-md-12");
+        _visible_1 = false;
+        $("#first_col").hide();
+        
+        
+       
+      } else {
+        $("#sec_col").removeClass("col-md-12").addClass("col-md-7");
+       
+        _visible_1 = true;
+        $("#first_col").show();
+      }
+    });
+   
+    // // view toggle for show contract
+    // $("#viewbtn").click(function () {
+    //   var hidden_columns = [3, 4, 5, 7];
+    //   var _visible = true;
+    //   if ($("#first_col").hasClass("col-md-12")) {
+    //     $("#first_col").removeClass("col-md-12").addClass("col-md-5");
+    //     _visible = false;
+    //     $("#sec_col").show();
+    //     $("#toggle_btn")
+    //       .find("i")
+    //       .removeClass("fa fa-angle-double-left")
+    //       .addClass("fa fa-angle-double-right");
+    //   }
+    //   var _table = $("#example").DataTable();
+    //   // Show hide hidden columns
+    //   _table.columns(hidden_columns).visible(_visible, true);
+    //   _table.columns.adjust();
+  
+    //   $("#showcontent").show();
+    // });
+    // // view toggle for show contract
+    // $("#viewbtn4").click(function () {
+    //   var hidden_columns = [3, 4, 5, 7];
+    //   var _visible = true;
+    //   if ($("#first_col").hasClass("col-md-12")) {
+    //     $("#first_col").removeClass("col-md-12").addClass("col-md-5");
+    //     _visible = false;
+    //     $("#sec_col").show();
+    //     $("#toggle_btn")
+    //       .find("i")
+    //       .removeClass("fa fa-angle-double-left")
+    //       .addClass("fa fa-angle-double-right");
+    //   }
+    //   var _table = $("#example").DataTable();
+    //   // Show hide hidden columns
+    //   _table.columns(hidden_columns).visible(_visible, true);
+    //   _table.columns.adjust();
+  
+    //   $("#showcontent").show();
+    // });
+    // $("#viewbtn2").click(function () {
+    //   var hidden_columns = [3, 4, 5, 7];
+    //   var _visible = true;
+    //   if ($("#first_col").hasClass("col-md-12")) {
+    //     $("#first_col").removeClass("col-md-12").addClass("col-md-5");
+    //     _visible = false;
+    //     $("#sec_col").show();
+    //     $("#toggle_btn")
+    //       .find("i")
+    //       .removeClass("fa fa-angle-double-left")
+    //       .addClass("fa fa-angle-double-right");
+    //   }
+    //   var _table = $("#example").DataTable();
+    //   // Show hide hidden columns
+    //   _table.columns(hidden_columns).visible(_visible, true);
+    //   _table.columns.adjust();
+  
+    //   $("#showcontent2").show();
+    // });
+</script>
+<!--View Details-->
+<script>
+    function view_details(){
+        if (_visible) {
+                        $("#first_col").removeClass("col-md-12").addClass("col-md-5");
+                        _visible = false;
+                        $("#sec_col").show();
+      
+                      
+      
+                        $("#toggle_btn")
+                          .find("i")
+                          .removeClass("fa fa-angle-double-left")
+                          .addClass("fa fa-angle-double-right");
+                    
+                      } 
+                      else {
+                        $("#first_col").removeClass("col-md-5").addClass("col-md-12");
+                        _visible = true;
+                        $("#sec_col").hide();
+                        $("#toggle_btn")
+                          .find("i")
+                          .removeClass("fa fa-angle-double-right")
+                          .addClass("fa fa-angle-double-left");
+                      }
+                    }
+    
+</script>
+
+
+
+
+
+
+
+<script>
+    function openTab(evt, tabName) {
+        // Declare all variables
+        var i, tabcontent, tablinks;
+
+        // Get all elements with class="tabcontent" and hide them
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        // Get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+    var carousel = document.getElementById("carouselExampleIndicators");
+
+    carousel.addEventListener("slid.bs.carousel", function (event) {
+        var activeSlideIndex = event.to;
+        if (activeSlideIndex === 0) {
+
+            openTab(event, 'general');
+
+        }
+        else if (activeSlideIndex === 1) {
+
+            openTab(event, 'billing');
+
+        }
+        else if (activeSlideIndex === 2) {
+
+            openTab(event, 'custom');
+
+        }
+        else if (activeSlideIndex === 3) {
+
+            openTab(event, 'file');
+
+        }
+
+    });
+
+
+
+</script>
+
+</body>
+</html>
